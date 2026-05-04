@@ -1,5 +1,7 @@
 package com.duoc.learningplatformvalidation.dto.usuario;
 
+import com.duoc.learningplatformvalidation.model.Rol;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -13,5 +15,5 @@ public class UsuarioResponse {
 
     private String correo;
 
-    private String rol;
+    private Rol rol;
 }

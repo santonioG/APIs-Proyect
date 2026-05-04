@@ -1,9 +1,12 @@
 package com.duoc.learningplatformvalidation.dto.usuario;
 
-import lombok.Data;
+import com.duoc.learningplatformvalidation.model.Rol;
+
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.Data;
 
 @Data
 public class UsuarioRequest {
@@ -21,7 +24,6 @@ public class UsuarioRequest {
     @Size(min = 6, max = 100, message = "La contraseña debe tener entre 6 y 100 caracteres")
     private String contraseña;
 
-    @NotBlank(message = "El rol es obligatorio")
-    @Size(min = 2, max = 50, message = "El rol debe tener entre 2 y 50 caracteres")
-    private String rol;
+    @NotNull(message = "El rol es obligatorio")
+    private Rol rol;
 }

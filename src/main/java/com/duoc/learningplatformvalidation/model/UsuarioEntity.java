@@ -2,6 +2,8 @@ package com.duoc.learningplatformvalidation.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -33,7 +35,6 @@ public class UsuarioEntity {
     @NotBlank(message = "La contraseña no puede estar vacía")
     private String contraseña;
 
-    @NotBlank(message = "El rol no puede estar vacío")
-    private String rol;
-
+    @Enumerated(EnumType.STRING)
+    private Rol rol;
 }

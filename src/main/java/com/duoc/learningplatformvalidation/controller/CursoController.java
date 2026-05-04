@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,40 +13,41 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.duoc.learningplatformvalidation.dto.usuario.UsuarioRequest;
-import com.duoc.learningplatformvalidation.dto.usuario.UsuarioResponse;
-import com.duoc.learningplatformvalidation.service.UsuarioService;
+import com.duoc.learningplatformvalidation.dto.repartidor.CursoRequest;
+import com.duoc.learningplatformvalidation.dto.repartidor.CursoResponse;
+import com.duoc.learningplatformvalidation.service.CursoService;
 
 import jakarta.validation.Valid;
+import lombok.NonNull;
 
 @RestController
-@RequestMapping("/api/usuarios")
-public class UsuarioController {
+@RequestMapping("/api/cursos")
+public class CursoController {
 
-    private final UsuarioService service;
-    public UsuarioController(UsuarioService usuarioService) {
-        this.service = usuarioService;
+    private final CursoService service;
+    public CursoController(CursoService CursoService) {
+        this.service = CursoService;
     }
 
     @GetMapping
-    public ResponseEntity<List<UsuarioResponse>> findAllUsuarios() {
+    public ResponseEntity<List<CursoResponse>> findAllCursos() {
         return ResponseEntity.ok(service.findAll());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<UsuarioResponse> findUsuarioById(@PathVariable @NonNull Long id) {
+    public ResponseEntity<CursoResponse> findCursoById(@PathVariable @NonNull Long id) {
         return ResponseEntity.ok(service.findById(id));
     }
 
     @PostMapping
-    public ResponseEntity<UsuarioResponse> create(@Valid @RequestBody UsuarioRequest request) {
-        UsuarioResponse created = service.create(request);
+    public ResponseEntity<CursoResponse> create(@Valid @RequestBody CursoRequest request) {
+        CursoResponse created = service.create(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(created);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<UsuarioResponse> update(@PathVariable Long id, @Valid @RequestBody UsuarioRequest request) {
-        UsuarioResponse updated = service.update(id, request);
+    public ResponseEntity<CursoResponse> update(@PathVariable Long id, @Valid @RequestBody CursoRequest request) {
+        CursoResponse updated = service.update(id, request);
         return ResponseEntity.ok(updated);
     }
 
