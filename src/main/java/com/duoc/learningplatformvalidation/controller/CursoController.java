@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.duoc.learningplatformvalidation.dto.repartidor.CursoRequest;
-import com.duoc.learningplatformvalidation.dto.repartidor.CursoResponse;
+import com.duoc.learningplatformvalidation.dto.curso.CursoRequest;
+import com.duoc.learningplatformvalidation.dto.curso.CursoResponse;
 import com.duoc.learningplatformvalidation.service.CursoService;
 
 import jakarta.validation.Valid;

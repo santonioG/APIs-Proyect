@@ -1,4 +1,4 @@
-package com.duoc.learningplatformvalidation.dto.repartidor;
+package com.duoc.learningplatformvalidation.dto.curso;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

@@ -1,7 +1,7 @@
 package com.duoc.learningplatformvalidation.mapper;
 
-import com.duoc.learningplatformvalidation.dto.repartidor.CursoRequest;
-import com.duoc.learningplatformvalidation.dto.repartidor.CursoResponse;
+import com.duoc.learningplatformvalidation.dto.curso.CursoRequest;
+import com.duoc.learningplatformvalidation.dto.curso.CursoResponse;
 import com.duoc.learningplatformvalidation.model.CursoEntity;
 import com.duoc.learningplatformvalidation.model.UsuarioEntity;
 

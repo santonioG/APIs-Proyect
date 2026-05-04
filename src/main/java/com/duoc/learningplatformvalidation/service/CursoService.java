@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
-import com.duoc.learningplatformvalidation.dto.repartidor.CursoRequest;
-import com.duoc.learningplatformvalidation.dto.repartidor.CursoResponse;
+import com.duoc.learningplatformvalidation.dto.curso.CursoRequest;
+import com.duoc.learningplatformvalidation.dto.curso.CursoResponse;
 import com.duoc.learningplatformvalidation.exception.NotFoundException;
 import com.duoc.learningplatformvalidation.mapper.CursoMapper;
 import com.duoc.learningplatformvalidation.model.CursoEntity;
