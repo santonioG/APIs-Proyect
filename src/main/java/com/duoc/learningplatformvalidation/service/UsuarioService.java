@@ -45,7 +45,7 @@ public class UsuarioService {
         return UsuarioMapper.toResponse(updated);
     }
 
-    public void delete(Long id) { //eliminar un usuario por id
+    public void delete(@NonNull Long id) { //eliminar un usuario por id
         
         UsuarioEntity entity = repo.findById(id).orElseThrow(() -> new NotFoundException("Usuario no encontrado con id: " + id));
         repo.delete(entity);

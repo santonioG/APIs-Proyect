@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class ApiExceptionHandler {
 
     @ExceptionHandler(NotFoundException.class)
-    public ResponseEntity<?> HandleNotFound(NotFoundException ex) {
+    public ResponseEntity<?> handleNotFound(NotFoundException ex) {
         
         Map<String, Object> body = new HashMap<>();
         body.put("timestamp", LocalDateTime.now());
@@ -26,8 +26,8 @@ public class ApiExceptionHandler {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(body); 
     }
 
-     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<?> HandleMethodArgumentNotValid(MethodArgumentNotValidException ex) {
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<?> handleValidation(MethodArgumentNotValidException ex) {
         
         Map<String, Object> body = new HashMap<>();
         body.put("timestamp", LocalDateTime.now());
@@ -35,15 +35,15 @@ public class ApiExceptionHandler {
         body.put("error", "Argumentos invalidos");
         body.put("message", ex.getMessage());
         
-        Map<String, String> errores = ex.getBindingResult().getFieldErrors().stream()
-                .collect(Collectors.toMap(FieldError::getField, FieldError::getDefaultMessage, (msg1, msg2) -> msg1 + ", " + msg2));
+        Map<String, String> errores = ex.getBindingResult().getFieldErrors().stream().collect(Collectors.toMap(FieldError::getField, FieldError::getDefaultMessage, (msg1, msg2) -> msg1 + ";" + msg2));
 
         body.put("errores", errores);
-                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(body);
+        
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(body);
     }
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<?> HandleNotFound(Exception ex) {
+    public ResponseEntity<?> handleNotFound(Exception ex) {
         
         Map<String, Object> body = new HashMap<>();
         body.put("timestamp", LocalDateTime.now());
