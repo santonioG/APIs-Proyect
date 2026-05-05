@@ -28,7 +28,7 @@ public class InscripcionController {
         this.service = InscripcionService;
     }
 
-    @GetMapping("/curso/{id}")
+    @GetMapping("/curso/{cursoId}")
     public ResponseEntity<List<InscripcionResponse>> findByCurso(@PathVariable Long cursoId) {
         return ResponseEntity.ok(service.findByCurso(cursoId));
     }
