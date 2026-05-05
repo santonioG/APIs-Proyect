@@ -5,10 +5,10 @@ import lombok.Data;
 @Data
 public class InscripcionRequest {
 
-    @NotNull(message = "El ID del profesor es obligatorio")
+    @NotNull(message = "El ID del alumno es obligatorio")
     private Long alumnoId;
 
-    @NotNull(message = "El ID del profesor es obligatorio")
+    @NotNull(message = "El ID del curso es obligatorio")
     private Long cursoId;
 
 }
